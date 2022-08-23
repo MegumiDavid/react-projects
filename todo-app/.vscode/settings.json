@@ -1,0 +1,18 @@
+{
+    "files.autoSave": "afterDelay",
+    "emmet.includeLanguages": {
+        "javascript":"javascriptreact"
+    },
+    "liveServer.settings.donotShowInfoMsg": true,
+    "workbench.colorTheme": "Atom One Dark",
+    "workbench.iconTheme": "material-icon-theme",
+
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/style"
+        }
+    ],
+    "window.zoomLevel": 1
+}
