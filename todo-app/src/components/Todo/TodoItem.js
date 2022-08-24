@@ -1,9 +1,8 @@
-import { React, useState } from 'react';
+import React from 'react';
 import IconCross from '../../images/icon-cross.svg'
 
 function TodoItem({item, todoList, setTodoList}) {
 
-  const [newArray, setNewArray] = useState([])
   function removeItem() {
     setTodoList( todoList.filter( todoItem => {
       return todoItem.id !== item.id
@@ -11,14 +10,14 @@ function TodoItem({item, todoList, setTodoList}) {
   }
 
   function checkItem() {
-    todoList.map( (todoItem) => {
-      if(todoItem.id === item.id) {
-        setNewArray([...newArray, { ...todoItem, check: !todoItem.check }])
-      }
-      setNewArray([...newArray, todoItem])
-    })
-    setTodoList(newArray)
-    setNewArray([])
+    setTodoList(
+      todoList.map( todoItem => {
+        if(todoItem.id === item.id) {
+          return {...todoItem, check : !todoItem.check}
+        } 
+        return todoItem
+      })
+    )
   }
 
   return (
