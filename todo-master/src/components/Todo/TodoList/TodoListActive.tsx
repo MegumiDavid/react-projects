@@ -1,4 +1,5 @@
 import TodoItem from './TodoItem';
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 
 interface TodoType {
@@ -13,8 +14,9 @@ interface TodoProps {
 
 
 export default function TodoListActive({ todos }:  TodoProps) : JSX.Element {
+    const [listRef] = useAutoAnimate<HTMLUListElement>({ duration: 150 })
     return (
-        <ul>
+        <ul ref={listRef}>
             {
                 todos.filter(todo => todo.checked === false).map(todo => (
                     <TodoItem 

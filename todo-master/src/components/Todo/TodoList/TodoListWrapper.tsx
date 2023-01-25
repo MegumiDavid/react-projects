@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import axios from 'axios';
 import { useQuery } from 'react-query';
 import { useAtom } from 'jotai';
@@ -23,7 +22,6 @@ export default function TodoListWrapper() : JSX.Element {
   });
 
   const [filter] = useAtom(filterAtom);
-  
 
   if (status === "loading") return <div className="list">Loading . . .</div>
   if (status === "error")   return <div className="list">Error</div>
@@ -32,11 +30,9 @@ export default function TodoListWrapper() : JSX.Element {
   return (
     <>
         <div className="list">
-            <ul>
                 {filter === 'all' && <TodoListAll todos={data} />}
                 {filter === 'active' && <TodoListActive todos={data} />}
                 {filter === 'completed' && <TodoListCompleted todos={data} />}
-            </ul>
         </div>
     </>
   )

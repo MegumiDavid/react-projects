@@ -1,4 +1,5 @@
 import TodoItemCompleted from './TodoItemCompleted';
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 
 interface TodoType {
@@ -13,9 +14,9 @@ interface TodoProps {
 
 
 export default function TodoListCompleted({ todos }:  TodoProps) : JSX.Element {
-
+    const [listRef] = useAutoAnimate<HTMLUListElement>({ duration: 150 })
     return (
-        <div className='list-completed'>
+        <ul className='list-completed' ref={listRef}>
             {
                 todos.filter(todo => todo.checked === true).map(todo => (
                     <TodoItemCompleted 
@@ -26,6 +27,6 @@ export default function TodoListCompleted({ todos }:  TodoProps) : JSX.Element {
                     />
                 ))
             }
-        </div>
+        </ul>
       )
 }

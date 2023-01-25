@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@formkit/auto-animate": "^1.0.0-beta.5",
     "axios": "^1.2.3",
     "jotai": "^1.13.1",
     "react": "^18.2.0",
