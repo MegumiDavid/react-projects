@@ -17,8 +17,7 @@ export default function PrivateRoutes() : JSX.Element {
         token: token || '',
         userId: userId || ''
       })
-      console.log(auth)
-      navigate('/todo')
+      navigate('/')
     }
   }, [])
 

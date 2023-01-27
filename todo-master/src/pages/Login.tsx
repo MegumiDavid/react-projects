@@ -49,7 +49,7 @@ export default function Login() : JSX.Element {
       localStorage.setItem('logged', (true).toString());
       localStorage.setItem('token', data.token);
       localStorage.setItem('userId', data.userId);
-      navigate('/todo')
+      navigate('/')
     } catch (err: any) {
       if (err.response.data.message === 'password incorrect') {
         alert('Incorrect password');
