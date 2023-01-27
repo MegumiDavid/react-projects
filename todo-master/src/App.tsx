@@ -8,6 +8,8 @@ import Signin from './pages/Signin';
 import Error from './pages/Error';
 import Home from './pages/Home';
 
+import PrivateRoutes from './PrivateRoutes';
+
 
 export default function App() : JSX.Element {
 
@@ -16,7 +18,9 @@ export default function App() : JSX.Element {
       <Routes>
         <Route path='/login' element={<Login />} />
         <Route path='/signin' element={<Signin />} />
-        <Route path='/todo' element={<Todo />} />
+        <Route element={<PrivateRoutes />}>
+          <Route path='/todo' element={<Todo />} />
+        </Route>
         <Route path='/' element={<Home />} />
         <Route path='*' element={<Error />} />
       </Routes>

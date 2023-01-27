@@ -1,6 +1,8 @@
 import axios from 'axios';
+import { useAtom } from 'jotai';
 import React, { useState } from 'react'
 import { useQueryClient, useMutation } from 'react-query';
+import authAtom from '../../states/authAtom';
 
 interface TodoPost {
   text: string;
@@ -8,6 +10,7 @@ interface TodoPost {
 
 export default function Input() : JSX.Element {
   const [input, setInput] = useState<string>('');
+  const [auth] = useAtom(authAtom);
   const queryClient = useQueryClient();
 
   async function createTodo() {
@@ -17,10 +20,15 @@ export default function Input() : JSX.Element {
     }
 
     setInput('');
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth.token}`,
+      'userId': auth.userId
+    }
     const todo: TodoPost = {
       text: input
     }
-    await axios.post(`http://localhost:3001/todo`, todo);
+    await axios.post(`http://localhost:3001/todo`, todo, {headers: headers});
   }
 
   const postMutate = useMutation(() => 

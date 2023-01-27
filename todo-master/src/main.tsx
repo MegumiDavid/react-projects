@@ -7,12 +7,20 @@ import { QueryClientProvider, QueryClient } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { Provider } from 'jotai';
 
+import { useAtomsDebugValue } from 'jotai-devtools'
+
 const queryClient = new QueryClient();
+
+function DebugAtoms() {
+  useAtomsDebugValue()
+  return null
+}
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <Provider>
+        <DebugAtoms />
         <App />
       </Provider>
     <ReactQueryDevtools />

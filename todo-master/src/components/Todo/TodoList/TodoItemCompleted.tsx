@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { useQueryClient, useMutation } from 'react-query';
+import { useAtom } from 'jotai';
+import authAtom from '../../../states/authAtom';
 
 import { BsFillTrashFill } from 'react-icons/bs';
 
@@ -19,17 +21,26 @@ interface TodoItemUpdate {
 export default function TodoItem({ id, text, checked } : TodoItemProps) : JSX.Element {
   
   const queryClient = useQueryClient();
+  const [auth] = useAtom(authAtom);
 
   async function updateChecked() {
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth.token}`,
+    }
     const todo: TodoItemUpdate = {
         text,
         checked: !checked
     } 
-    await axios.put(`http://localhost:3001/todo/${id}`, todo);
+    await axios.put(`http://localhost:3001/todo/${id}`, todo, { headers: headers });
   }
 
   async function deleteChecked() {
-    await axios.delete(`http://localhost:3001/todo/${id}`);
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth.token}`,
+    }
+    await axios.delete(`http://localhost:3001/todo/${id}`, { headers: headers });
   }
 
   const updateMutate = useMutation(() => 

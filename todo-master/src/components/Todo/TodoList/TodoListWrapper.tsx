@@ -7,12 +7,22 @@ import TodoListCompleted from './TodoListCompleted';
 import TodoListActive from './TodoListActive';
 
 import filterAtom from '../../../states/filterAtom';
+import authAtom from '../../../states/authAtom';
+import { useEffect } from 'react';
 
 
 export default function TodoListWrapper() : JSX.Element {
 
+  const [filter] = useAtom(filterAtom);
+  const [auth] = useAtom(authAtom);
+
   async function fetchTodos() {
-    const response = (await axios.get('http://localhost:3001/todo')).data;   
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth.token}`,
+      'userId': auth.userId
+    }
+    const response = (await axios.get('http://localhost:3001/todo',  { headers: headers })).data;   
     return response;
   }   
 
@@ -20,8 +30,6 @@ export default function TodoListWrapper() : JSX.Element {
     refetchOnMount: true,
     refetchOnWindowFocus: true,
   });
-
-  const [filter] = useAtom(filterAtom);
 
   if (status === "loading") return <div className="list">Loading . . .</div>
   if (status === "error")   return <div className="list">Error</div>

@@ -13,7 +13,7 @@ interface TodoProps {
 
 
 export default function TodoListAll({ todos }:  TodoProps) : JSX.Element {
-  const [listRef] = useAutoAnimate<HTMLUListElement>({ duration: 150 })
+  const [listRef] = useAutoAnimate<HTMLUListElement>({ duration: 100 })
   return (
     <ul ref={listRef}>
         {

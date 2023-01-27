@@ -14,7 +14,7 @@ interface TodoProps {
 
 
 export default function TodoListCompleted({ todos }:  TodoProps) : JSX.Element {
-    const [listRef] = useAutoAnimate<HTMLUListElement>({ duration: 150 })
+    const [listRef] = useAutoAnimate<HTMLUListElement>({ duration: 100 })
     return (
         <ul className='list-completed' ref={listRef}>
             {
