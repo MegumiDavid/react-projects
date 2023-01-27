@@ -41,7 +41,7 @@ export default function Input() : JSX.Element {
   }
   
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} style={{marginBottom: '2.5rem'}}>
         <input type="text" name="todo-input" placeholder="add details" value={input} required onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value)} />
         <button type="submit" className="btn">Add</button>
     </form>

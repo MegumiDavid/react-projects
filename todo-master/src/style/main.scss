@@ -130,7 +130,7 @@ form {
     width: 100%;
     margin-top: 3rem;
     margin-bottom: 2rem;
-   input {
+    input {
     width: 2.4rem;
     height: 2.4rem;
     margin-right: 1.5rem;
@@ -161,6 +161,8 @@ form {
 
 .list-completed {
     @extend .list;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
 
