@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+$bp-md: 540px;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    
+    @media only screen and (max-width: $bp-md) {
+        font-size: 50.5%;
+    }
+    @media only screen and (max-width: 500px) {
+        font-size: 48.5%;
+    }
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+}

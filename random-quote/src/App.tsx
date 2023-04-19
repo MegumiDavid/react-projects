@@ -13,7 +13,7 @@ function App(): JSX.Element {
       <Nav />
         <Routes>
           <Route path="/" element={<Quote />} />
-          <Route path="/author" element={<QuoteList />} />
+          <Route path="/:author" element={<QuoteList />} />
           <Route path="*" element={<Error />} />
         </Routes>
       <Atr />

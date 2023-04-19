@@ -166,7 +166,7 @@ blockquote {
             color: $white;
         }
 
-        .carrer {
+        .desc {
             color: #dcdcdc;
         }
 
@@ -185,9 +185,10 @@ blockquote {
         align-self: flex-start;
     }
 
-    .carrer {
+    .desc {
         color: $light-cyan;
         font-size: 1.4rem;
+        letter-spacing: .1rem;
     }
 
     .arrow {

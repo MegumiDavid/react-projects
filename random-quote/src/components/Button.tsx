@@ -1,11 +1,18 @@
 import { BsArrowRight } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 
-export default function Button(): JSX.Element {
+interface ButtonType {
+  character: string;
+  anime: string;
+}
+
+export default function Button({ character, anime }: ButtonType): JSX.Element {
+  const navigate = useNavigate();
   return (
-    <button className="author">
+    <button className="author" onClick={() => navigate(`/${character}`)}>
       <div className="author-wrapper">
-        <p className="name">Bill Gates</p>
-        <p className="carrer">business</p>
+        <p className="name">{character}</p>
+        <p className="desc">{anime}</p>
       </div>
       <BsArrowRight className='arrow' />
     </button>
